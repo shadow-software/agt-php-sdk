@@ -27,3 +27,4 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
       PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+      SPEC_REPO_TOKEN: ${{ secrets.SPEC_REPO_TOKEN }}
