@@ -1,0 +1,924 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "American Gun Trader",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/api/v1/dealer"
+        }
+    ],
+    "paths": {
+        "/me": {
+            "get": {
+                "operationId": "dealer.api.me",
+                "description": "`can_publish` is the single flag the plugin gates on. If it is false the\nplugin must stop and show `blockers` rather than firing a catalog of doomed\nrequests at a 409.",
+                "summary": "The dealer's identity and, crucially, whether they can publish right now",
+                "tags": [
+                    "DealerAccount"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "business_name": {
+                                                    "type": "string"
+                                                },
+                                                "ffl_verified": {
+                                                    "type": "boolean"
+                                                },
+                                                "address_complete": {
+                                                    "type": "boolean"
+                                                },
+                                                "can_publish": {
+                                                    "type": "boolean",
+                                                    "description": "The plugin refuses to sync unless this is true."
+                                                },
+                                                "blockers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "code": {
+                                                                "type": "string",
+                                                                "const": "address_incomplete"
+                                                            },
+                                                            "message": {
+                                                                "type": "string",
+                                                                "const": "Your account needs a complete address with a city selected from the dropdown. Listings take their location from your account, not from the product."
+                                                            },
+                                                            "fix_url": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "code",
+                                                            "message",
+                                                            "fix_url"
+                                                        ]
+                                                    }
+                                                },
+                                                "listings_publish_immediately": {
+                                                    "type": "string",
+                                                    "description": "A dealer skips the moderation queue, so their listings go live at\nonce. The plugin tells the merchant to expect that."
+                                                },
+                                                "limits": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "title_max": {
+                                                            "type": "integer",
+                                                            "const": 80
+                                                        },
+                                                        "description_max": {
+                                                            "type": "integer",
+                                                            "const": 4000
+                                                        },
+                                                        "description_min": {
+                                                            "type": "integer",
+                                                            "const": 80
+                                                        },
+                                                        "price_min": {
+                                                            "type": "number"
+                                                        },
+                                                        "price_max": {
+                                                            "type": "number"
+                                                        },
+                                                        "weight_max": {
+                                                            "type": "number"
+                                                        },
+                                                        "images_max": {
+                                                            "type": "integer",
+                                                            "const": 10
+                                                        },
+                                                        "image_max_kb": {
+                                                            "type": "integer",
+                                                            "const": 10240
+                                                        },
+                                                        "image_extensions": {
+                                                            "type": "array",
+                                                            "prefixItems": [
+                                                                {
+                                                                    "type": "string",
+                                                                    "const": "jpeg"
+                                                                },
+                                                                {
+                                                                    "type": "string",
+                                                                    "const": "jpg"
+                                                                },
+                                                                {
+                                                                    "type": "string",
+                                                                    "const": "png"
+                                                                },
+                                                                {
+                                                                    "type": "string",
+                                                                    "const": "webp"
+                                                                }
+                                                            ],
+                                                            "minItems": 4,
+                                                            "maxItems": 4,
+                                                            "additionalItems": false
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "title_max",
+                                                        "description_max",
+                                                        "description_min",
+                                                        "price_min",
+                                                        "price_max",
+                                                        "weight_max",
+                                                        "images_max",
+                                                        "image_max_kb",
+                                                        "image_extensions"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "username",
+                                                "business_name",
+                                                "ffl_verified",
+                                                "address_complete",
+                                                "can_publish",
+                                                "blockers",
+                                                "listings_publish_immediately",
+                                                "limits"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/taxonomy": {
+            "get": {
+                "operationId": "dealer.api.taxonomy",
+                "description": "Cached and ETagged \u2014 the plugin refreshes it daily, and a store with an\nunchanged copy gets a 304 rather than a payload.",
+                "summary": "Everything the plugin needs to build a valid listing: the category tree, the\nmanufacturers, the calibers, the applications, and the conditions",
+                "tags": [
+                    "DealerAccount"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "categories": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "parent_id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "slug": {
+                                                                "type": "string"
+                                                            },
+                                                            "requires_manufacturer_and_caliber": {
+                                                                "type": "boolean",
+                                                                "description": "A firearm category cannot be published without a manufacturer and a\ncaliber, so flag it here rather than making the plugin guess."
+                                                            },
+                                                            "caliber_types": {
+                                                                "type": "array",
+                                                                "items": {}
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "parent_id",
+                                                            "name",
+                                                            "slug",
+                                                            "requires_manufacturer_and_caliber",
+                                                            "caliber_types"
+                                                        ]
+                                                    }
+                                                },
+                                                "manufacturers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "slug": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "name",
+                                                            "slug"
+                                                        ]
+                                                    }
+                                                },
+                                                "calibers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "slug": {
+                                                                "type": "string"
+                                                            },
+                                                            "type": {
+                                                                "type": "integer",
+                                                                "description": "Matches the category's caliber_types, so the plugin can offer\nonly the calibers that category actually allows."
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "name",
+                                                            "slug",
+                                                            "type"
+                                                        ]
+                                                    }
+                                                },
+                                                "applications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "name"
+                                                        ]
+                                                    }
+                                                },
+                                                "conditions": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "label": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "id",
+                                                            "label"
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "categories",
+                                                "manufacturers",
+                                                "calibers",
+                                                "applications",
+                                                "conditions"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "304": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/listings": {
+            "get": {
+                "operationId": "dealer.api.listings.index",
+                "summary": "The dealer's listings, newest first",
+                "tags": [
+                    "DealerListing"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "limit": {
+                                            "type": [
+                                                "object",
+                                                "null"
+                                            ]
+                                        },
+                                        "offset": {
+                                            "type": [
+                                                "object",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "limit",
+                                        "offset"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "dealer.api.listings.store",
+                "tags": [
+                    "DealerListing"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreDealerListingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "address_incomplete"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "const": "Your American Gun Trader account needs a complete address (with a city selected from the dropdown) before you can publish listings. Listings take their location from your account, not from the product."
+                                        },
+                                        "fix_url": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message",
+                                        "fix_url"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/listings/status": {
+            "get": {
+                "operationId": "dealer.api.listings.status",
+                "description": "The plugin calls this on a schedule with the slugs it knows about and gets\nback one small object per listing. This is what turns \"it sold on AGT\" into\n\"the WooCommerce product is out of stock\" without AGT ever having to reach\ninto the dealer's store, which is exactly what most dealer sites (behind a\nWAF, on a private host) could not accept anyway.",
+                "summary": "Bulk status poll \u2014 the AGT-to-WooCommerce writeback channel",
+                "tags": [
+                    "DealerListing"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "anyOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "data"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "minItems": 0,
+                                                    "maxItems": 0,
+                                                    "additionalItems": false
+                                                }
+                                            },
+                                            "required": [
+                                                "data"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "too_many_slugs"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "const": "Ask for at most 200 listings at a time."
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/listings/{urlSlug}": {
+            "get": {
+                "operationId": "dealer.api.listings.show",
+                "tags": [
+                    "DealerListing"
+                ],
+                "parameters": [
+                    {
+                        "name": "urlSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "dealer.api.listings.update",
+                "tags": [
+                    "DealerListing"
+                ],
+                "parameters": [
+                    {
+                        "name": "urlSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateDealerListingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "409": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "listing_deleted"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "const": "This listing is deleted. Restore it before updating it."
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "dealer.api.listings.destroy",
+                "summary": "Soft-delete. Reversible: the images survive, so restore() brings the\nlisting back whole. Trashing a product in WooCommerce lands here",
+                "tags": [
+                    "DealerListing"
+                ],
+                "parameters": [
+                    {
+                        "name": "urlSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/listings/{urlSlug}/restore": {
+            "post": {
+                "operationId": "dealer.api.listings.restore",
+                "summary": "Un-delete. Restoring a product from the WooCommerce trash lands here, which\nis what makes the two sides symmetrical",
+                "tags": [
+                    "DealerListing"
+                ],
+                "parameters": [
+                    {
+                        "name": "urlSlug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "not_restorable"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StoreDealerListingRequest": {
+                "type": "object",
+                "description": "Create a listing through the dealer API.\n\nThe rules mirror CreatePostRequest (the web wizard) via the shared\nListingRules, so a WooCommerce product cannot get onto AGT under looser terms\nthan one typed in by hand. The differences are only in shape: this endpoint\ntakes JSON-ish field names and real file uploads, not the wizard's\nexisting_images/reorder machinery.",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 80
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 4000
+                    },
+                    "price": {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 9999999.99
+                    },
+                    "condition": {
+                        "type": "integer",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ]
+                    },
+                    "category_id": {
+                        "type": "integer"
+                    },
+                    "manufacturer_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "caliber_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 0,
+                        "maximum": 1000
+                    },
+                    "applications": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "integer"
+                        },
+                        "maxItems": 20
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "binary",
+                            "contentMediaType": "application/octet-stream",
+                            "description": "Maximum file size: 10240 kilobytes."
+                        },
+                        "minItems": 1,
+                        "maxItems": 10
+                    }
+                },
+                "required": [
+                    "title",
+                    "description",
+                    "price",
+                    "condition",
+                    "category_id",
+                    "images"
+                ],
+                "title": "StoreDealerListingRequest"
+            },
+            "UpdateDealerListingRequest": {
+                "type": "object",
+                "description": "Partially update a listing through the dealer API.\n\nEvery field is optional: a WooCommerce store that only changed a price sends\nonly the price. When a field IS present it faces exactly the same rules as on\ncreate (via the shared ListingRules), so an update can never sneak past a\nconstraint that create enforces.",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 80
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 4000
+                    },
+                    "price": {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 9999999.99
+                    },
+                    "condition": {
+                        "type": "integer",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ]
+                    },
+                    "category_id": {
+                        "type": "integer"
+                    },
+                    "manufacturer_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "caliber_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 0,
+                        "maximum": 1000
+                    },
+                    "applications": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "maxItems": 20
+                    },
+                    "images": {
+                        "type": "array",
+                        "description": "Sending images replaces the whole set \u2014 WooCommerce owns the gallery.",
+                        "items": {
+                            "type": "string",
+                            "format": "binary",
+                            "contentMediaType": "application/octet-stream",
+                            "description": "Maximum file size: 10240 kilobytes."
+                        },
+                        "minItems": 1,
+                        "maxItems": 10
+                    }
+                },
+                "title": "UpdateDealerListingRequest"
+            }
+        },
+        "responses": {
+            "ValidationException": {
+                "description": "Validation error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Errors overview."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "description": "A detailed description of each field that failed validation.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "errors"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
