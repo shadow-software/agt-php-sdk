@@ -20,11 +20,9 @@ jobs:
       language: php
       package_name: "shadow-software/agt-php-sdk"
       package_dir: "."
-      spec_url: ${{ github.event.client_payload.spec_url || '' }}
       version: ${{ github.event.client_payload.version || inputs.version }}
       dry_run: ${{ inputs.dry_run || false }}
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
       PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
-      SPEC_REPO_TOKEN: ${{ secrets.SPEC_REPO_TOKEN }}
