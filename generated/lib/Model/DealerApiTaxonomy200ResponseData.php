@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Model;
+namespace ShadowSoftware\Agt\Model;
 
 use \ArrayAccess;
-use \ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerApiTaxonomy200ResponseData Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,11 +57,11 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'categories' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[]',
-        'manufacturers' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[]',
-        'calibers' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCalibersInner[]',
-        'applications' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[]',
-        'conditions' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataConditionsInner[]'
+        'categories' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[]',
+        'manufacturers' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[]',
+        'calibers' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCalibersInner[]',
+        'applications' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[]',
+        'conditions' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataConditionsInner[]'
     ];
 
     /**
@@ -335,7 +335,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Gets categories
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[]
      */
     public function getCategories()
     {
@@ -345,7 +345,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Sets categories
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[] $categories categories
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCategoriesInner[] $categories categories
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Gets manufacturers
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[]
      */
     public function getManufacturers()
     {
@@ -372,7 +372,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Sets manufacturers
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[] $manufacturers manufacturers
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataManufacturersInner[] $manufacturers manufacturers
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Gets calibers
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCalibersInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCalibersInner[]
      */
     public function getCalibers()
     {
@@ -399,7 +399,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Sets calibers
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataCalibersInner[] $calibers calibers
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataCalibersInner[] $calibers calibers
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Gets applications
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[]
      */
     public function getApplications()
     {
@@ -426,7 +426,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Sets applications
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[] $applications applications
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataApplicationsInner[] $applications applications
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Gets conditions
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataConditionsInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataConditionsInner[]
      */
     public function getConditions()
     {
@@ -453,7 +453,7 @@ class DealerApiTaxonomy200ResponseData implements ModelInterface, ArrayAccess, \
     /**
      * Sets conditions
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseDataConditionsInner[] $conditions conditions
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseDataConditionsInner[] $conditions conditions
      *
      * @return self
      */

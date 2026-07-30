@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Api;
+namespace ShadowSoftware\Agt\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use ShadowSoftware\Sdk\Generated\ApiException;
-use ShadowSoftware\Sdk\Generated\Configuration;
-use ShadowSoftware\Sdk\Generated\FormDataProcessor;
-use ShadowSoftware\Sdk\Generated\HeaderSelector;
-use ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use ShadowSoftware\Agt\ApiException;
+use ShadowSoftware\Agt\Configuration;
+use ShadowSoftware\Agt\FormDataProcessor;
+use ShadowSoftware\Agt\HeaderSelector;
+use ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerAccountApi Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -135,9 +135,9 @@ class DealerAccountApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dealerApiMe'] to see the possible values for this operation
      *
-     * @throws \ShadowSoftware\Sdk\Generated\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \ShadowSoftware\Agt\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response
+     * @return \ShadowSoftware\Agt\Model\DealerApiMe200Response
      */
     public function dealerApiMe(string $contentType = self::contentTypes['dealerApiMe'][0])
     {
@@ -152,9 +152,9 @@ class DealerAccountApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dealerApiMe'] to see the possible values for this operation
      *
-     * @throws \ShadowSoftware\Sdk\Generated\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \ShadowSoftware\Agt\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ShadowSoftware\Agt\Model\DealerApiMe200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function dealerApiMeWithHttpInfo(string $contentType = self::contentTypes['dealerApiMe'][0])
     {
@@ -186,7 +186,7 @@ class DealerAccountApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response',
+                        '\ShadowSoftware\Agt\Model\DealerApiMe200Response',
                         $request,
                         $response,
                     );
@@ -208,7 +208,7 @@ class DealerAccountApi
             }
 
             return $this->handleResponseWithDataType(
-                '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response',
+                '\ShadowSoftware\Agt\Model\DealerApiMe200Response',
                 $request,
                 $response,
             );
@@ -217,7 +217,7 @@ class DealerAccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response',
+                        '\ShadowSoftware\Agt\Model\DealerApiMe200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class DealerAccountApi
      */
     public function dealerApiMeAsyncWithHttpInfo(string $contentType = self::contentTypes['dealerApiMe'][0])
     {
-        $returnType = '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response';
+        $returnType = '\ShadowSoftware\Agt\Model\DealerApiMe200Response';
         $request = $this->dealerApiMeRequest($contentType);
 
         return $this->client
@@ -383,9 +383,9 @@ class DealerAccountApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dealerApiTaxonomy'] to see the possible values for this operation
      *
-     * @throws \ShadowSoftware\Sdk\Generated\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \ShadowSoftware\Agt\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response
      */
     public function dealerApiTaxonomy(string $contentType = self::contentTypes['dealerApiTaxonomy'][0])
     {
@@ -400,9 +400,9 @@ class DealerAccountApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dealerApiTaxonomy'] to see the possible values for this operation
      *
-     * @throws \ShadowSoftware\Sdk\Generated\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \ShadowSoftware\Agt\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function dealerApiTaxonomyWithHttpInfo(string $contentType = self::contentTypes['dealerApiTaxonomy'][0])
     {
@@ -434,7 +434,7 @@ class DealerAccountApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response',
+                        '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response',
                         $request,
                         $response,
                     );
@@ -456,7 +456,7 @@ class DealerAccountApi
             }
 
             return $this->handleResponseWithDataType(
-                '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response',
+                '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response',
                 $request,
                 $response,
             );
@@ -465,7 +465,7 @@ class DealerAccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response',
+                        '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -509,7 +509,7 @@ class DealerAccountApi
      */
     public function dealerApiTaxonomyAsyncWithHttpInfo(string $contentType = self::contentTypes['dealerApiTaxonomy'][0])
     {
-        $returnType = '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response';
+        $returnType = '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response';
         $request = $this->dealerApiTaxonomyRequest($contentType);
 
         return $this->client

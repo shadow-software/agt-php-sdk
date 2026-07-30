@@ -2,7 +2,9 @@
 
 PHP client for the [American Gun Trader](https://americanguntrader.com/) Dealer API.
 
-Generated from `openapi.json` by [`shadow-software/sdk-release`](https://github.com/shadow-software/sdk-release). Do not edit `generated/` by hand.
+Namespace: **`ShadowSoftware\Agt`** (generated from `openapi.json` by
+[`shadow-software/sdk-release`](https://github.com/shadow-software/sdk-release)).
+Do not edit `generated/` by hand.
 
 ## Install
 
@@ -10,7 +12,9 @@ Generated from `openapi.json` by [`shadow-software/sdk-release`](https://github.
 composer require shadow-software/agt-php-sdk
 ```
 
-Until the package is listed on Packagist, add a VCS repository:
+Requires PHP 8.1+.
+
+Until Packagist lists the package, add a VCS repository:
 
 ```json
 {
@@ -18,18 +22,16 @@ Until the package is listed on Packagist, add a VCS repository:
     { "type": "vcs", "url": "https://github.com/shadow-software/agt-php-sdk" }
   ],
   "require": {
-    "shadow-software/agt-php-sdk": "^0.1"
+    "shadow-software/agt-php-sdk": "^0.2"
   }
 }
 ```
 
-Requires PHP 8.1+.
-
 ## Usage
 
 ```php
-use ShadowSoftware\Sdk\Generated\Configuration;
-use ShadowSoftware\Sdk\Generated\Api\DealerListingApi;
+use ShadowSoftware\Agt\Configuration;
+use ShadowSoftware\Agt\Api\DealerListingApi;
 
 $config = Configuration::getDefaultConfiguration()
     ->setHost('https://americanguntrader.com')

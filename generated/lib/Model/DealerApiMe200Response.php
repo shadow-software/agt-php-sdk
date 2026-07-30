@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Model;
+namespace ShadowSoftware\Agt\Model;
 
 use \ArrayAccess;
-use \ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerApiMe200Response Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class DealerApiMe200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseData'
+        'data' => '\ShadowSoftware\Agt\Model\DealerApiMe200ResponseData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class DealerApiMe200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseData
+     * @return \ShadowSoftware\Agt\Model\DealerApiMe200ResponseData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class DealerApiMe200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseData $data data
+     * @param \ShadowSoftware\Agt\Model\DealerApiMe200ResponseData $data data
      *
      * @return self
      */

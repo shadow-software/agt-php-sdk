@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Model;
+namespace ShadowSoftware\Agt\Model;
 
 use \ArrayAccess;
-use \ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerApiMe200ResponseData Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,9 +63,9 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
         'ffl_verified' => 'bool',
         'address_complete' => 'bool',
         'can_publish' => 'bool',
-        'blockers' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataBlockersInner[]',
+        'blockers' => '\ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataBlockersInner[]',
         'listings_publish_immediately' => 'string',
-        'limits' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataLimits'
+        'limits' => '\ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataLimits'
     ];
 
     /**
@@ -537,7 +537,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets blockers
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataBlockersInner[]
+     * @return \ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataBlockersInner[]
      */
     public function getBlockers()
     {
@@ -547,7 +547,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets blockers
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataBlockersInner[] $blockers blockers
+     * @param \ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataBlockersInner[] $blockers blockers
      *
      * @return self
      */
@@ -591,7 +591,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets limits
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataLimits
+     * @return \ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataLimits
      */
     public function getLimits()
     {
@@ -601,7 +601,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets limits
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200ResponseDataLimits $limits limits
+     * @param \ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataLimits $limits limits
      *
      * @return self
      */

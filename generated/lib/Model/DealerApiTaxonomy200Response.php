@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Model;
+namespace ShadowSoftware\Agt\Model;
 
 use \ArrayAccess;
-use \ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerApiTaxonomy200Response Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class DealerApiTaxonomy200Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseData'
+        'data' => '\ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class DealerApiTaxonomy200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseData
+     * @return \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class DealerApiTaxonomy200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200ResponseData $data data
+     * @param \ShadowSoftware\Agt\Model\DealerApiTaxonomy200ResponseData $data data
      *
      * @return self
      */

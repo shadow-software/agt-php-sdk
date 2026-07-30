@@ -1,4 +1,4 @@
-# ShadowSoftware\Sdk\Generated\DealerAccountApi
+# ShadowSoftware\Agt\DealerAccountApi
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to http://localhost:8080/api/v1/dealer, except if the oper
 ## `dealerApiMe()`
 
 ```php
-dealerApiMe(): \ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response
+dealerApiMe(): \ShadowSoftware\Agt\Model\DealerApiMe200Response
 ```
 
 The dealer's identity and, crucially, whether they can publish right now
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerAccountApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiMe200Response**](../Model/DealerApiMe200Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiMe200Response**](../Model/DealerApiMe200Response.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ No authorization required
 ## `dealerApiTaxonomy()`
 
 ```php
-dealerApiTaxonomy(): \ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response
+dealerApiTaxonomy(): \ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response
 ```
 
 Everything the plugin needs to build a valid listing: the category tree, the manufacturers, the calibers, the applications, and the conditions
@@ -81,7 +81,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerAccountApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -101,7 +101,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiTaxonomy200Response**](../Model/DealerApiTaxonomy200Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiTaxonomy200Response**](../Model/DealerApiTaxonomy200Response.md)
 
 ### Authorization
 

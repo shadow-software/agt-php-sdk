@@ -1,4 +1,4 @@
-# ShadowSoftware\Sdk\Generated\DealerListingApi
+# ShadowSoftware\Agt\DealerListingApi
 
 
 
@@ -18,7 +18,7 @@ All URIs are relative to http://localhost:8080/api/v1/dealer, except if the oper
 ## `dealerApiListingsDestroy()`
 
 ```php
-dealerApiListingsDestroy($url_slug): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response
+dealerApiListingsDestroy($url_slug): \ShadowSoftware\Agt\Model\DealerApiListingsStore201Response
 ```
 
 Soft-delete. Reversible: the images survive, so restore() brings the listing back whole. Trashing a product in WooCommerce lands here
@@ -31,7 +31,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 ## `dealerApiListingsIndex()`
 
 ```php
-dealerApiListingsIndex(): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsIndex200Response
+dealerApiListingsIndex(): \ShadowSoftware\Agt\Model\DealerApiListingsIndex200Response
 ```
 
 The dealer's listings, newest first
@@ -85,7 +85,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -105,7 +105,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsIndex200Response**](../Model/DealerApiListingsIndex200Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsIndex200Response**](../Model/DealerApiListingsIndex200Response.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ No authorization required
 ## `dealerApiListingsRestore()`
 
 ```php
-dealerApiListingsRestore($url_slug): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response
+dealerApiListingsRestore($url_slug): \ShadowSoftware\Agt\Model\DealerApiListingsStore201Response
 ```
 
 Un-delete. Restoring a product from the WooCommerce trash lands here, which is what makes the two sides symmetrical
@@ -136,7 +136,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -159,7 +159,7 @@ try {
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ No authorization required
 ## `dealerApiListingsShow()`
 
 ```php
-dealerApiListingsShow($url_slug): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response
+dealerApiListingsShow($url_slug): \ShadowSoftware\Agt\Model\DealerApiListingsStore201Response
 ```
 
 
@@ -190,7 +190,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -213,7 +213,7 @@ try {
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ No authorization required
 ## `dealerApiListingsStatus()`
 
 ```php
-dealerApiListingsStatus(): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStatus200Response
+dealerApiListingsStatus(): \ShadowSoftware\Agt\Model\DealerApiListingsStatus200Response
 ```
 
 Bulk status poll — the AGT-to-WooCommerce writeback channel
@@ -246,7 +246,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -266,7 +266,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStatus200Response**](../Model/DealerApiListingsStatus200Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStatus200Response**](../Model/DealerApiListingsStatus200Response.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ No authorization required
 ## `dealerApiListingsStore()`
 
 ```php
-dealerApiListingsStore($title, $description, $price, $condition, $category_id, $images, $manufacturer_id, $caliber_id, $weight, $applications): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response
+dealerApiListingsStore($title, $description, $price, $condition, $category_id, $images, $manufacturer_id, $caliber_id, $weight, $applications): \ShadowSoftware\Agt\Model\DealerApiListingsStore201Response
 ```
 
 
@@ -297,7 +297,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -338,7 +338,7 @@ try {
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ No authorization required
 ## `dealerApiListingsUpdate()`
 
 ```php
-dealerApiListingsUpdate($url_slug, $title, $description, $price, $condition, $category_id, $manufacturer_id, $caliber_id, $weight, $applications, $images): \ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response
+dealerApiListingsUpdate($url_slug, $title, $description, $price, $condition, $category_id, $manufacturer_id, $caliber_id, $weight, $applications, $images): \ShadowSoftware\Agt\Model\DealerApiListingsStore201Response
 ```
 
 
@@ -369,7 +369,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new ShadowSoftware\Sdk\Generated\Api\DealerListingApi(
+$apiInstance = new ShadowSoftware\Agt\Api\DealerListingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -412,7 +412,7 @@ try {
 
 ### Return type
 
-[**\ShadowSoftware\Sdk\Generated\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
+[**\ShadowSoftware\Agt\Model\DealerApiListingsStore201Response**](../Model/DealerApiListingsStore201Response.md)
 
 ### Authorization
 

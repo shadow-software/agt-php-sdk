@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace ShadowSoftware\Sdk\Generated\Model;
+namespace ShadowSoftware\Agt\Model;
 
 use \ArrayAccess;
-use \ShadowSoftware\Sdk\Generated\ObjectSerializer;
+use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
  * DealerApiMe200ResponseDataLimits Class Doc Comment
  *
  * @category Class
- * @package  ShadowSoftware\Sdk\Generated
+ * @package  ShadowSoftware\Agt
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
