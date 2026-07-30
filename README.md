@@ -12,20 +12,7 @@ Do not edit `generated/` by hand.
 composer require shadow-software/agt-php-sdk
 ```
 
-Requires PHP 8.1+.
-
-Until Packagist lists the package, add a VCS repository:
-
-```json
-{
-  "repositories": [
-    { "type": "vcs", "url": "https://github.com/shadow-software/agt-php-sdk" }
-  ],
-  "require": {
-    "shadow-software/agt-php-sdk": "^0.2"
-  }
-}
-```
+Requires PHP 8.1+. On [Packagist](https://packagist.org/packages/shadow-software/agt-php-sdk).
 
 ## Usage
 
