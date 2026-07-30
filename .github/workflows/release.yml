@@ -1,4 +1,5 @@
 name: Release
+
 on:
   repository_dispatch:
     types: [spec-updated]
@@ -13,6 +14,7 @@ on:
         required: false
         type: boolean
         default: false
+
 jobs:
   release:
     uses: shadow-software/sdk-release/.github/workflows/release.yml@master
