@@ -45,8 +45,7 @@
                                                     "type": "boolean"
                                                 },
                                                 "can_publish": {
-                                                    "type": "boolean",
-                                                    "description": "The plugin refuses to sync unless this is true."
+                                                    "type": "boolean"
                                                 },
                                                 "blockers": {
                                                     "type": "array",
@@ -73,8 +72,7 @@
                                                     }
                                                 },
                                                 "listings_publish_immediately": {
-                                                    "type": "string",
-                                                    "description": "A dealer skips the moderation queue, so their listings go live at\nonce. The plugin tells the merchant to expect that."
+                                                    "type": "string"
                                                 },
                                                 "limits": {
                                                     "type": "object",
@@ -206,8 +204,7 @@
                                                                 "type": "string"
                                                             },
                                                             "requires_manufacturer_and_caliber": {
-                                                                "type": "boolean",
-                                                                "description": "A firearm category cannot be published without a manufacturer and a\ncaliber, so flag it here rather than making the plugin guess."
+                                                                "type": "boolean"
                                                             },
                                                             "caliber_types": {
                                                                 "type": "array",
@@ -261,8 +258,7 @@
                                                                 "type": "string"
                                                             },
                                                             "type": {
-                                                                "type": "integer",
-                                                                "description": "Matches the category's caliber_types, so the plugin can offer\nonly the calibers that category actually allows."
+                                                                "type": "integer"
                                                             }
                                                         },
                                                         "required": [
@@ -716,6 +712,213 @@
                                         "error": {
                                             "type": "string",
                                             "const": "not_restorable"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/tools/{tool}": {
+            "post": {
+                "operationId": "dealer.api.tools.invoke",
+                "tags": [
+                    "DealerToolInvocation"
+                ],
+                "parameters": [
+                    {
+                        "name": "tool",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "tool": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "object",
+                                                    "additionalProperties": {}
+                                                },
+                                                {
+                                                    "type": "object"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "tool",
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "anyOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "error": {
+                                                    "type": "string",
+                                                    "const": "tool_error"
+                                                },
+                                                "message": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "object",
+                                                            "additionalProperties": {}
+                                                        },
+                                                        {
+                                                            "type": "null"
+                                                        },
+                                                        {
+                                                            "type": "object"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "error",
+                                                "message"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "error": {
+                                                    "type": "string",
+                                                    "const": "validation_failed"
+                                                },
+                                                "message": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "error",
+                                                "message",
+                                                "errors"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "internal_error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "const": "Something went wrong handling this request."
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "forbidden"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "unauthenticated"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "const": "tool_not_found"
                                         },
                                         "message": {
                                             "type": "string"
