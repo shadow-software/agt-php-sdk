@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **parent_id** | **string** |  |
 **name** | **string** |  |
 **slug** | **string** |  |
-**requires_manufacturer_and_caliber** | **bool** | A firearm category cannot be published without a manufacturer and a caliber, so flag it here rather than making the plugin guess. |
+**requires_manufacturer_and_caliber** | **bool** |  |
 **caliber_types** | **mixed[]** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

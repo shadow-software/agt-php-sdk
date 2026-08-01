@@ -463,7 +463,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Sets requires_manufacturer_and_caliber
      *
-     * @param bool $requires_manufacturer_and_caliber A firearm category cannot be published without a manufacturer and a caliber, so flag it here rather than making the plugin guess.
+     * @param bool $requires_manufacturer_and_caliber requires_manufacturer_and_caliber
      *
      * @return self
      */

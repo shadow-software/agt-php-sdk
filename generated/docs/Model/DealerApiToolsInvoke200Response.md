@@ -1,12 +1,10 @@
-# DealerApiTaxonomy200ResponseDataCalibersInner
+# DealerApiToolsInvoke200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
-**name** | **string** |  |
-**slug** | **string** |  |
-**type** | **int** |  |
+**tool** | **string** |  |
+**data** | [**\ShadowSoftware\Agt\Model\DealerApiToolsInvoke200ResponseData**](DealerApiToolsInvoke200ResponseData.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

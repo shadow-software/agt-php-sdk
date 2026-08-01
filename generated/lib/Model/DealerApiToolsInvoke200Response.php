@@ -1,6 +1,6 @@
 <?php
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner
+ * DealerApiToolsInvoke200Response
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner Class Doc Comment
+ * DealerApiToolsInvoke200Response Class Doc Comment
  *
  * @category Class
  * @package  ShadowSoftware\Agt
@@ -40,7 +40,7 @@ use \ShadowSoftware\Agt\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class DealerApiToolsInvoke200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      *
      * @var string
      */
-    protected static $openAPIModelName = 'dealer_api_taxonomy_200_response_data_calibers_inner';
+    protected static $openAPIModelName = 'dealer_api_tools_invoke_200_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'type' => 'int'
+        'tool' => 'string',
+        'data' => '\ShadowSoftware\Agt\Model\DealerApiToolsInvoke200ResponseData'
     ];
 
     /**
@@ -71,10 +69,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'slug' => null,
-        'type' => null
+        'tool' => null,
+        'data' => null
     ];
 
     /**
@@ -83,10 +79,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'slug' => false,
-        'type' => false
+        'tool' => false,
+        'data' => false
     ];
 
     /**
@@ -175,10 +169,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'type' => 'type'
+        'tool' => 'tool',
+        'data' => 'data'
     ];
 
     /**
@@ -187,10 +179,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'type' => 'setType'
+        'tool' => 'setTool',
+        'data' => 'setData'
     ];
 
     /**
@@ -199,10 +189,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'type' => 'getType'
+        'tool' => 'getTool',
+        'data' => 'getData'
     ];
 
     /**
@@ -262,10 +250,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('tool', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -295,17 +281,11 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['tool'] === null) {
+            $invalidProperties[] = "'tool' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -323,109 +303,55 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
 
 
     /**
-     * Gets id
+     * Gets tool
      *
      * @return string
      */
-    public function getId()
+    public function getTool()
     {
-        return $this->container['id'];
+        return $this->container['tool'];
     }
 
     /**
-     * Sets id
+     * Sets tool
      *
-     * @param string $id id
+     * @param string $tool tool
      *
      * @return self
      */
-    public function setId($id)
+    public function setTool($tool)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($tool)) {
+            throw new \InvalidArgumentException('non-nullable tool cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['tool'] = $tool;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets data
      *
-     * @return string
+     * @return \ShadowSoftware\Agt\Model\DealerApiToolsInvoke200ResponseData
      */
-    public function getName()
+    public function getData()
     {
-        return $this->container['name'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets name
+     * Sets data
      *
-     * @param string $name name
+     * @param \ShadowSoftware\Agt\Model\DealerApiToolsInvoke200ResponseData $data data
      *
      * @return self
      */
-    public function setName($name)
+    public function setData($data)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string $slug slug
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
-        }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param int $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner
+ * DealerApiToolsInvoke200ResponseData
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner Class Doc Comment
+ * DealerApiToolsInvoke200ResponseData Class Doc Comment
  *
  * @category Class
  * @package  ShadowSoftware\Agt
@@ -40,7 +40,7 @@ use \ShadowSoftware\Agt\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class DealerApiToolsInvoke200ResponseData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      *
      * @var string
      */
-    protected static $openAPIModelName = 'dealer_api_taxonomy_200_response_data_calibers_inner';
+    protected static $openAPIModelName = 'dealer_api_tools_invoke_200_response_data';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'type' => 'int'
+        
     ];
 
     /**
@@ -71,10 +68,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'slug' => null,
-        'type' => null
+        
     ];
 
     /**
@@ -83,10 +77,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'slug' => false,
-        'type' => false
+        
     ];
 
     /**
@@ -175,10 +166,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'type' => 'type'
+        
     ];
 
     /**
@@ -187,10 +175,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'type' => 'setType'
+        
     ];
 
     /**
@@ -199,10 +184,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'type' => 'getType'
+        
     ];
 
     /**
@@ -262,10 +244,6 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -295,18 +273,6 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -321,114 +287,6 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string $slug slug
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
-        }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param int $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

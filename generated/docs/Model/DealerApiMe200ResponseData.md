@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **business_name** | **string** |  |
 **ffl_verified** | **bool** |  |
 **address_complete** | **bool** |  |
-**can_publish** | **bool** | The plugin refuses to sync unless this is true. |
+**can_publish** | **bool** |  |
 **blockers** | [**\ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataBlockersInner[]**](DealerApiMe200ResponseDataBlockersInner.md) |  |
-**listings_publish_immediately** | **string** | A dealer skips the moderation queue, so their listings go live at once. The plugin tells the merchant to expect that. |
+**listings_publish_immediately** | **string** |  |
 **limits** | [**\ShadowSoftware\Agt\Model\DealerApiMe200ResponseDataLimits**](DealerApiMe200ResponseDataLimits.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

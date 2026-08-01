@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 *DealerListingApi* | [**dealerApiListingsStatus**](docs/Api/DealerListingApi.md#dealerapilistingsstatus) | **GET** /listings/status | Bulk status poll — the AGT-to-WooCommerce writeback channel
 *DealerListingApi* | [**dealerApiListingsStore**](docs/Api/DealerListingApi.md#dealerapilistingsstore) | **POST** /listings | 
 *DealerListingApi* | [**dealerApiListingsUpdate**](docs/Api/DealerListingApi.md#dealerapilistingsupdate) | **PUT** /listings/{urlSlug} | 
+*DealerToolInvocationApi* | [**dealerApiToolsInvoke**](docs/Api/DealerToolInvocationApi.md#dealerapitoolsinvoke) | **POST** /tools/{tool} | 
 
 ## Models
 
@@ -102,6 +103,16 @@ Class | Method | HTTP request | Description
 - [DealerApiTaxonomy200ResponseDataCategoriesInner](docs/Model/DealerApiTaxonomy200ResponseDataCategoriesInner.md)
 - [DealerApiTaxonomy200ResponseDataConditionsInner](docs/Model/DealerApiTaxonomy200ResponseDataConditionsInner.md)
 - [DealerApiTaxonomy200ResponseDataManufacturersInner](docs/Model/DealerApiTaxonomy200ResponseDataManufacturersInner.md)
+- [DealerApiToolsInvoke200Response](docs/Model/DealerApiToolsInvoke200Response.md)
+- [DealerApiToolsInvoke200ResponseData](docs/Model/DealerApiToolsInvoke200ResponseData.md)
+- [DealerApiToolsInvoke401Response](docs/Model/DealerApiToolsInvoke401Response.md)
+- [DealerApiToolsInvoke403Response](docs/Model/DealerApiToolsInvoke403Response.md)
+- [DealerApiToolsInvoke404Response](docs/Model/DealerApiToolsInvoke404Response.md)
+- [DealerApiToolsInvoke422Response](docs/Model/DealerApiToolsInvoke422Response.md)
+- [DealerApiToolsInvoke422ResponseAnyOf](docs/Model/DealerApiToolsInvoke422ResponseAnyOf.md)
+- [DealerApiToolsInvoke422ResponseAnyOf1](docs/Model/DealerApiToolsInvoke422ResponseAnyOf1.md)
+- [DealerApiToolsInvoke422ResponseAnyOfMessage](docs/Model/DealerApiToolsInvoke422ResponseAnyOfMessage.md)
+- [DealerApiToolsInvoke500Response](docs/Model/DealerApiToolsInvoke500Response.md)
 - [InlineObject](docs/Model/InlineObject.md)
 
 ## Authorization

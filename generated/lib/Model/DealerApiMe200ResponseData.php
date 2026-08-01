@@ -520,7 +520,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets can_publish
      *
-     * @param bool $can_publish The plugin refuses to sync unless this is true.
+     * @param bool $can_publish can_publish
      *
      * @return self
      */
@@ -574,7 +574,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets listings_publish_immediately
      *
-     * @param string $listings_publish_immediately A dealer skips the moderation queue, so their listings go live at once. The plugin tells the merchant to expect that.
+     * @param string $listings_publish_immediately listings_publish_immediately
      *
      * @return self
      */

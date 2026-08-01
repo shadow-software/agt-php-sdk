@@ -1,6 +1,6 @@
 <?php
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner
+ * DealerApiToolsInvoke500Response
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ShadowSoftware\Agt\ObjectSerializer;
 
 /**
- * DealerApiTaxonomy200ResponseDataCalibersInner Class Doc Comment
+ * DealerApiToolsInvoke500Response Class Doc Comment
  *
  * @category Class
  * @package  ShadowSoftware\Agt
@@ -40,7 +40,7 @@ use \ShadowSoftware\Agt\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class DealerApiToolsInvoke500Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      *
      * @var string
      */
-    protected static $openAPIModelName = 'dealer_api_taxonomy_200_response_data_calibers_inner';
+    protected static $openAPIModelName = 'dealer_api_tools_invoke_500_response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'type' => 'int'
+        'error' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -71,10 +69,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'slug' => null,
-        'type' => null
+        'error' => null,
+        'message' => null
     ];
 
     /**
@@ -83,10 +79,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'slug' => false,
-        'type' => false
+        'error' => false,
+        'message' => false
     ];
 
     /**
@@ -175,10 +169,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'type' => 'type'
+        'error' => 'error',
+        'message' => 'message'
     ];
 
     /**
@@ -187,10 +179,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'type' => 'setType'
+        'error' => 'setError',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -199,10 +189,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'type' => 'getType'
+        'error' => 'getError',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -246,6 +234,32 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
         return self::$openAPIModelName;
     }
 
+    public const ERROR_INTERNAL_ERROR = 'internal_error';
+    public const MESSAGE_SOMETHING_WENT_WRONG_HANDLING_THIS_REQUEST = 'Something went wrong handling this request.';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getErrorAllowableValues()
+    {
+        return [
+            self::ERROR_INTERNAL_ERROR,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMessageAllowableValues()
+    {
+        return [
+            self::MESSAGE_SOMETHING_WENT_WRONG_HANDLING_THIS_REQUEST,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -262,10 +276,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
@@ -295,18 +307,30 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['error'] === null) {
+            $invalidProperties[] = "'error' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        $allowedValues = $this->getErrorAllowableValues();
+        if (!is_null($this->container['error']) && !in_array($this->container['error'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'error', must be one of '%s'",
+                $this->container['error'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
+
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        $allowedValues = $this->getMessageAllowableValues();
+        if (!is_null($this->container['message']) && !in_array($this->container['message'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'message', must be one of '%s'",
+                $this->container['message'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -323,109 +347,75 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
 
 
     /**
-     * Gets id
+     * Gets error
      *
      * @return string
      */
-    public function getId()
+    public function getError()
     {
-        return $this->container['id'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets id
+     * Sets error
      *
-     * @param string $id id
+     * @param string $error error
      *
      * @return self
      */
-    public function setId($id)
+    public function setError($error)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['id'] = $id;
+        $allowedValues = $this->getErrorAllowableValues();
+        if (!in_array($error, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'error', must be one of '%s'",
+                    $error,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets message
      *
      * @return string
      */
-    public function getName()
+    public function getMessage()
     {
-        return $this->container['name'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets name
+     * Sets message
      *
-     * @param string $name name
+     * @param string $message message
      *
      * @return self
      */
-    public function setName($name)
+    public function setMessage($message)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string $slug slug
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+        $allowedValues = $this->getMessageAllowableValues();
+        if (!in_array($message, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'message', must be one of '%s'",
+                    $message,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param int $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['message'] = $message;
 
         return $this;
     }
