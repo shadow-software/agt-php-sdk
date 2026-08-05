@@ -30,13 +30,16 @@
                                             "type": "object",
                                             "properties": {
                                                 "id": {
-                                                    "type": "string"
+                                                    "type": "integer"
                                                 },
                                                 "username": {
                                                     "type": "string"
                                                 },
                                                 "business_name": {
-                                                    "type": "string"
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
                                                 },
                                                 "ffl_verified": {
                                                     "type": "boolean"
@@ -192,16 +195,25 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
-                                                                "type": "string"
+                                                                "type": "integer"
                                                             },
                                                             "parent_id": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "integer",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "name": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "slug": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "requires_manufacturer_and_caliber": {
                                                                 "type": "boolean"
@@ -227,13 +239,19 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
-                                                                "type": "string"
+                                                                "type": "integer"
                                                             },
                                                             "name": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "slug": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             }
                                                         },
                                                         "required": [
@@ -249,13 +267,19 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
-                                                                "type": "string"
+                                                                "type": "integer"
                                                             },
                                                             "name": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "slug": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             },
                                                             "type": {
                                                                 "type": "integer"
@@ -275,10 +299,13 @@
                                                         "type": "object",
                                                         "properties": {
                                                             "id": {
-                                                                "type": "string"
+                                                                "type": "integer"
                                                             },
                                                             "name": {
-                                                                "type": "string"
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
                                                             }
                                                         },
                                                         "required": [
