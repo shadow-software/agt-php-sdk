@@ -57,7 +57,7 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'name' => 'string',
         'slug' => 'string'
     ];
@@ -82,8 +82,8 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'name' => false,
-        'slug' => false
+        'name' => true,
+        'slug' => true
     ];
 
     /**
@@ -291,11 +291,11 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['name'] === null && !$this->isNullableSetToNull('name')) {
+            $invalidProperties[] = "'name' is required";
         }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
+        if ($this->container['slug'] === null && !$this->isNullableSetToNull('slug')) {
+            $invalidProperties[] = "'slug' is required";
         }
         return $invalidProperties;
     }
@@ -315,7 +315,7 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -325,7 +325,7 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -352,14 +352,21 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -369,7 +376,7 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Gets slug
      *
-     * @return string
+     * @return string|null
      */
     public function getSlug()
     {
@@ -379,14 +386,21 @@ class DealerApiTaxonomy200ResponseDataManufacturersInner implements ModelInterfa
     /**
      * Sets slug
      *
-     * @param string $slug slug
+     * @param string|null $slug slug
      *
      * @return self
      */
     public function setSlug($slug)
     {
         if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'slug');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('slug', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['slug'] = $slug;
 

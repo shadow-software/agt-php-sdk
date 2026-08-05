@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
+**id** | **int** |  |
 **username** | **string** |  |
 **business_name** | **string** |  |
 **ffl_verified** | **bool** |  |

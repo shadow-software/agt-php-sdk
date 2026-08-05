@@ -57,7 +57,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'name' => 'string',
         'slug' => 'string',
         'type' => 'int'
@@ -84,8 +84,8 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'name' => false,
-        'slug' => false,
+        'name' => true,
+        'slug' => true,
         'type' => false
     ];
 
@@ -298,11 +298,11 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['name'] === null && !$this->isNullableSetToNull('name')) {
+            $invalidProperties[] = "'name' is required";
         }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
+        if ($this->container['slug'] === null && !$this->isNullableSetToNull('slug')) {
+            $invalidProperties[] = "'slug' is required";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -325,7 +325,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -335,7 +335,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return self
      */
@@ -352,7 +352,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -362,14 +362,21 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -379,7 +386,7 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Gets slug
      *
-     * @return string
+     * @return string|null
      */
     public function getSlug()
     {
@@ -389,14 +396,21 @@ class DealerApiTaxonomy200ResponseDataCalibersInner implements ModelInterface, A
     /**
      * Sets slug
      *
-     * @param string $slug slug
+     * @param string|null $slug slug
      *
      * @return self
      */
     public function setSlug($slug)
     {
         if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'slug');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('slug', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['slug'] = $slug;
 

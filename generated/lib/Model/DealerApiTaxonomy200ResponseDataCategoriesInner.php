@@ -57,8 +57,8 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'parent_id' => 'string',
+        'id' => 'int',
+        'parent_id' => 'int',
         'name' => 'string',
         'slug' => 'string',
         'requires_manufacturer_and_caliber' => 'bool',
@@ -88,9 +88,9 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'parent_id' => false,
-        'name' => false,
-        'slug' => false,
+        'parent_id' => true,
+        'name' => true,
+        'slug' => true,
         'requires_manufacturer_and_caliber' => false,
         'caliber_types' => false
     ];
@@ -312,14 +312,14 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['parent_id'] === null) {
-            $invalidProperties[] = "'parent_id' can't be null";
+        if ($this->container['parent_id'] === null && !$this->isNullableSetToNull('parent_id')) {
+            $invalidProperties[] = "'parent_id' is required";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['name'] === null && !$this->isNullableSetToNull('name')) {
+            $invalidProperties[] = "'name' is required";
         }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
+        if ($this->container['slug'] === null && !$this->isNullableSetToNull('slug')) {
+            $invalidProperties[] = "'slug' is required";
         }
         if ($this->container['requires_manufacturer_and_caliber'] === null) {
             $invalidProperties[] = "'requires_manufacturer_and_caliber' can't be null";
@@ -345,7 +345,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -355,7 +355,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return self
      */
@@ -372,7 +372,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Gets parent_id
      *
-     * @return string
+     * @return int|null
      */
     public function getParentId()
     {
@@ -382,14 +382,21 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Sets parent_id
      *
-     * @param string $parent_id parent_id
+     * @param int|null $parent_id parent_id
      *
      * @return self
      */
     public function setParentId($parent_id)
     {
         if (is_null($parent_id)) {
-            throw new \InvalidArgumentException('non-nullable parent_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parent_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parent_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parent_id'] = $parent_id;
 
@@ -399,7 +406,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -409,14 +416,21 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -426,7 +440,7 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Gets slug
      *
-     * @return string
+     * @return string|null
      */
     public function getSlug()
     {
@@ -436,14 +450,21 @@ class DealerApiTaxonomy200ResponseDataCategoriesInner implements ModelInterface,
     /**
      * Sets slug
      *
-     * @param string $slug slug
+     * @param string|null $slug slug
      *
      * @return self
      */
     public function setSlug($slug)
     {
         if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'slug');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('slug', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['slug'] = $slug;
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
-**parent_id** | **string** |  |
+**id** | **int** |  |
+**parent_id** | **int** |  |
 **name** | **string** |  |
 **slug** | **string** |  |
 **requires_manufacturer_and_caliber** | **bool** |  |

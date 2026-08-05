@@ -57,7 +57,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'username' => 'string',
         'business_name' => 'string',
         'ffl_verified' => 'bool',
@@ -95,7 +95,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'id' => false,
         'username' => false,
-        'business_name' => false,
+        'business_name' => true,
         'ffl_verified' => false,
         'address_complete' => false,
         'can_publish' => false,
@@ -336,8 +336,8 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
-        if ($this->container['business_name'] === null) {
-            $invalidProperties[] = "'business_name' can't be null";
+        if ($this->container['business_name'] === null && !$this->isNullableSetToNull('business_name')) {
+            $invalidProperties[] = "'business_name' is required";
         }
         if ($this->container['ffl_verified'] === null) {
             $invalidProperties[] = "'ffl_verified' can't be null";
@@ -375,7 +375,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -385,7 +385,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return self
      */
@@ -429,7 +429,7 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets business_name
      *
-     * @return string
+     * @return string|null
      */
     public function getBusinessName()
     {
@@ -439,14 +439,21 @@ class DealerApiMe200ResponseData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets business_name
      *
-     * @param string $business_name business_name
+     * @param string|null $business_name business_name
      *
      * @return self
      */
     public function setBusinessName($business_name)
     {
         if (is_null($business_name)) {
-            throw new \InvalidArgumentException('non-nullable business_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'business_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('business_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['business_name'] = $business_name;
 

@@ -27,5 +27,5 @@
     "scripts": {
         "test": "if [ -d generated/test ]; then phpunit --bootstrap vendor/autoload.php generated/test; else echo \"no generated client yet\"; fi"
     },
-    "version": "3.9.1"
+    "version": "3.10.0"
 }

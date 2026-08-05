@@ -57,7 +57,7 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'name' => 'string'
     ];
 
@@ -80,7 +80,7 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'name' => false
+        'name' => true
     ];
 
     /**
@@ -284,8 +284,8 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['name'] === null && !$this->isNullableSetToNull('name')) {
+            $invalidProperties[] = "'name' is required";
         }
         return $invalidProperties;
     }
@@ -305,7 +305,7 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
     /**
      * Gets id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -315,7 +315,7 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param int $id id
      *
      * @return self
      */
@@ -332,7 +332,7 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -342,14 +342,21 @@ class DealerApiTaxonomy200ResponseDataApplicationsInner implements ModelInterfac
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
