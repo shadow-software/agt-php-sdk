@@ -33,6 +33,12 @@ jobs:
           path: .sdk-release
           token: ${{ secrets.SDK_RELEASE_TOKEN }}
 
+      # consumer_repo/consumer_dispatch_token: agt-for-woocommerce depends on
+      # this package via Composer. The composite action already fires
+      # repository_dispatch (sdk-updated) to a consumer repo after a real
+      # publish — reused here rather than hand-rolling the same curl call a
+      # second time (an earlier pass here duplicated it as a one-off "Notify
+      # agt-for-woocommerce" step; removed in favour of this).
       - name: Generate, build, test, publish
         uses: ./.sdk-release/.github/actions/release
         with:
@@ -44,22 +50,5 @@ jobs:
           npm_token: ${{ secrets.NPM_TOKEN }}
           packagist_token: ${{ secrets.PACKAGIST_TOKEN }}
           packagist_username: ${{ secrets.PACKAGIST_USERNAME }}
-
-      # agt-for-woocommerce depends on this package via Composer. A real
-      # publish (never on dry_run) hands it off so the plugin release is
-      # hands-off too, instead of waiting on someone to notice a new SDK
-      # version and bump the plugin by hand. continue-on-error: the publish
-      # above already succeeded — a missing/rotated PLUGIN_DISPATCH_TOKEN
-      # should not turn a real SDK release into a failed CI run.
-      - name: Notify agt-for-woocommerce of the new SDK version
-        if: ${{ success() && inputs.dry_run != true }}
-        continue-on-error: true
-        env:
-          TOKEN: ${{ secrets.PLUGIN_DISPATCH_TOKEN }}
-        run: |
-          version="${{ github.event.client_payload.version || inputs.version }}"
-          curl -sSf -X POST \
-            -H "Authorization: Bearer ${TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/shadow-software/agt-for-woocommerce/dispatches" \
-            -d "{\"event_type\":\"php-sdk-released\",\"client_payload\":{\"version\":\"${version}\"}}"
+          consumer_repo: "agt-for-woocommerce"
+          consumer_dispatch_token: ${{ secrets.PLUGIN_DISPATCH_TOKEN }}
