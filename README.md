@@ -18,11 +18,13 @@
 </p>
 
 <p align="center">
-  <b><a href="https://packagist.org/packages/shadow-software/agt-php-sdk">Packagist →</a></b>
+  <b><a href="https://americanguntrader.com/">Platform</a></b>
   &nbsp;·&nbsp;
-  <a href="https://github.com/shadow-software/agt-for-woocommerce">WordPress plugin</a>
+  <a href="https://americanguntrader.com/docs/dealer-api">API docs</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/shadow-software/agt-sdk">TypeScript SDK</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/shadow-software/agt-for-woocommerce">WooCommerce plugin</a>
 </p>
 
 ---
@@ -65,12 +67,13 @@ plugin depends on this package (`^0.2`) and ships `vendor/` in its release ZIP.
 
 ---
 
-## Also by Shadow Software
+## AGT ecosystem
 
 | | |
 |---|---|
-| [`shadow-software/dabdash-php-sdk`](https://github.com/shadow-software/dabdash-php-sdk) | DabDash Tenant API (PHP) |
-| [`@shadow-software/agt-sdk`](https://github.com/shadow-software/agt-sdk) | AGT Dealer API (TypeScript) |
+| [americanguntrader.com](https://americanguntrader.com) | Marketplace & dealer accounts |
+| [Dealer API docs](https://americanguntrader.com/docs/dealer-api) | API reference & OpenAPI spec |
+| [`@shadow-software/agt-sdk`](https://www.npmjs.com/package/@shadow-software/agt-sdk) | TypeScript SDK (npm) |
 | [AGT Sync for WooCommerce](https://github.com/shadow-software/agt-for-woocommerce) | WordPress / WooCommerce plugin |
 
 <p align="center">

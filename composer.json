@@ -1,6 +1,7 @@
 {
     "name": "shadow-software/agt-php-sdk",
     "description": "PHP SDK for the American Gun Trader Dealer API",
+    "homepage": "https://americanguntrader.com/docs/dealer-api",
     "type": "library",
     "license": "MIT",
     "require": {
