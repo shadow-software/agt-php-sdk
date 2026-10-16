@@ -1,4 +1,4 @@
-name: Release
+name: Deploy
 
 on:
   repository_dispatch:
@@ -37,12 +37,6 @@ jobs:
           path: .sdk-release
           token: ${{ secrets.SDK_RELEASE_TOKEN }}
 
-      # consumer_repo/consumer_dispatch_token: agt-for-woocommerce depends on
-      # this package via Composer. The composite action already fires
-      # repository_dispatch (sdk-updated) to a consumer repo after a real
-      # publish — reused here rather than hand-rolling the same curl call a
-      # second time (an earlier pass here duplicated it as a one-off "Notify
-      # agt-for-woocommerce" step; removed in favour of this).
       - name: Generate, build, test, publish
         uses: ./.sdk-release/.github/actions/release
         with:
